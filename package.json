@@ -1,0 +1,13 @@
+{
+  "name": "talentotech",
+  "version": "1.0.0",
+  "description": "Pre-entrega",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Claudio Valdes",
+  "license": "MIT",
+  "type": "module"
+}
