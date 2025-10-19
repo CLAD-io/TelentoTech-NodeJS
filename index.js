@@ -1,10 +1,11 @@
 
-const [, , metodo, datos, id=null, titulo=null, precio=null, categoria=null] = process.argv
+const [, , metodo, datos] = process.argv
 let metodo1 = metodo.toUpperCase()
 console.log(process.argv)
 
 if (metodo1 == 'GET'){
-    
+    const [, , , , id=null] = process.argv
+
     if (id!=null){
         fetch(`https://fakestoreapi.com/products/${id}`)
         .then(response => response.json())
@@ -20,10 +21,10 @@ if (metodo1 == 'GET'){
 }
 
 if (metodo1 == 'POST'){
-
+        const [, , , ,titulo=null, precio=null, categoria=null] = process.argv
         const product = { title: titulo, price: precio, category: categoria };
-        fetch(`https://fakestoreapi.com/products/${id}`, {
-        method: 'PUT',
+        fetch(`https://fakestoreapi.com/products`, {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(product)
         })
@@ -33,6 +34,8 @@ if (metodo1 == 'POST'){
 
 
 if (metodo1 == 'DELETE'){
+     const [, , ,id=null] = process.argv
+     
     fetch(`https://fakestoreapi.com/products/${id}`, {
     method: 'DELETE'
     })
