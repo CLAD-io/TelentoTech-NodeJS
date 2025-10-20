@@ -1,3 +1,14 @@
+/* 
+*************************************************************************************
+    MODO USO GET PARA LISTAR TODOS LOS ARTICULOS: NPM RUN START GET PRODUCTOS
+    MODO USO GET PARA LISTAR 1 ARTICULO: NPM RUN START GET PRODUCTOS {NUMERO ID}
+
+    MODO USO POST: NPM RUN START POST PRODUCTO {TITULO} {PRECIO} {CATEGORIA}
+
+    MODO USO DELETE: NPM RUN START DELETE PRODUCTO {NUMERO ID}
+*************************************************************************************
+*/
+
 
 const [, , metodo, datos] = process.argv
 let metodo1 = metodo.toUpperCase()
@@ -35,7 +46,7 @@ if (metodo1 == 'POST'){
 
 if (metodo1 == 'DELETE'){
      const [, , ,id=null] = process.argv
-     
+
     fetch(`https://fakestoreapi.com/products/${id}`, {
     method: 'DELETE'
     })
