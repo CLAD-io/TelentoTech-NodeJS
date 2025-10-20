@@ -20,19 +20,17 @@ if (metodo1 == 'GET'){
     if (id!=null){
         fetch(`https://fakestoreapi.com/products/${id}`)
         .then(response => response.json())
-        .then(data => console.log(data));
-        console.log('estoy dentro del id')
+        .then(data => console.log(`Listado de producto seleccionado con ID:${data.id}`, data));
 
     }else{
-        console.log('Listado completo de productos')
         fetch('https://fakestoreapi.com/products')
         .then(response => response.json())
-        .then(data => console.log(data));   
+        .then(data => console.log(`Listado de todos los productos`, data));   
     }
 }
 
 if (metodo1 == 'POST'){
-        const [, , , ,titulo=null, precio=null, categoria=null] = process.argv
+        const [, , , , titulo=null, precio=null, categoria=null] = process.argv
         const product = { title: titulo, price: precio, category: categoria };
         fetch(`https://fakestoreapi.com/products`, {
         method: 'POST',
